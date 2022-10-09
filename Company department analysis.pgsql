@@ -21,3 +21,10 @@ join data_sci.employees e on cd.id=e.department_id
 order by salary DESC
 limit 1; -- health department in the domestic division has the highest salary
 
+
+--division and department with the lowest salary
+select cd.division_name, cd.department_name,e.salary
+from data_sci.company_departments cd
+join data_sci.employees e on cd.id=e.department_id
+order by salary asc
+limit 1; -- the "other" department in the non-categorized division has the lowest salary
