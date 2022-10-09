@@ -22,3 +22,11 @@ select last_name, job_title, trunc((cast(now() as date)-start_date)/365.25,1)as 
 from data_sci.employees
 order by year DESC
 limit 1; --why is he still in a lower role?
+
+
+--youngest employee in the company (by start date)
+select last_name, start_date, job_title, trunc((cast(now() as date)-start_date)/365.25,1)as year
+from data_sci.employees
+order by year asc
+limit 1; -- employee hasn't started yet/start date is in the future. Is this an error?
+
