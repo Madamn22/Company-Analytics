@@ -28,3 +28,13 @@ from data_sci.company_departments cd
 join data_sci.employees e on cd.id=e.department_id
 order by salary asc
 limit 1; -- the "other" department in the non-categorized division has the lowest salary
+
+
+--highest salaries in each department_id
+select cd.department_name, max(e.salary) as highest_salaries_per_department
+from data_sci.company_departments cd 
+join data_sci.employees e on e.department_id=cd.id
+group by cd.department_name
+order by max(e.salary) desc
+--health has the highest salary
+--no one has a salary higher than $150,000. why?
