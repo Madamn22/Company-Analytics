@@ -17,3 +17,8 @@ join data_sci.company_regions cr on cr.id=e.region_id
 order by salary desc
 limit 1; 
 
+--oldest employee in the company (by start date)
+select last_name, job_title, trunc((cast(now() as date)-start_date)/365.25,1)as year -- assumes all dates are in the past
+from data_sci.employees
+order by year DESC
+limit 1; --why is he still in a lower role?
